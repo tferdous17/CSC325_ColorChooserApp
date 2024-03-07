@@ -85,7 +85,33 @@ public class ColorChooserController {
                     }
                 });
 
+        redTextField.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
+                redSlider.adjustValue(Double.parseDouble(t1));
+            }
+        });
 
+        blueTextField.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
+                blueSlider.adjustValue(Double.parseDouble(t1));
+            }
+        });
+
+        greenTextField.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
+                greenSlider.adjustValue(Double.parseDouble(t1));
+            }
+        });
+
+        alphaTextField.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
+                alphaSlider.adjustValue(Double.parseDouble(t1));
+            }
+        });
 
         // listeners that set Rectangle's fill based on Slider changes
         redSlider.valueProperty().addListener(
