@@ -85,73 +85,37 @@ public class ColorChooserController {
                     }
                 });
 
-        redTextField.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
-                redSlider.adjustValue(Double.parseDouble(t1));
-            }
-        });
+        redTextField.textProperty().addListener((observableValue, s, t1) -> redSlider.adjustValue(Double.parseDouble(t1)));
 
-        blueTextField.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
-                blueSlider.adjustValue(Double.parseDouble(t1));
-            }
-        });
+        blueTextField.textProperty().addListener((observableValue, s, t1) -> blueSlider.adjustValue(Double.parseDouble(t1)));
 
-        greenTextField.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
-                greenSlider.adjustValue(Double.parseDouble(t1));
-            }
-        });
+        greenTextField.textProperty().addListener((observableValue, s, t1) -> greenSlider.adjustValue(Double.parseDouble(t1)));
 
-        alphaTextField.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
-                alphaSlider.adjustValue(Double.parseDouble(t1));
-            }
-        });
+        alphaTextField.textProperty().addListener((observableValue, s, t1) -> alphaSlider.adjustValue(Double.parseDouble(t1)));
 
         // listeners that set Rectangle's fill based on Slider changes
         redSlider.valueProperty().addListener(
-                new ChangeListener<Number>() {
-                    @Override
-                    public void changed(ObservableValue<? extends Number> ov,
-                                        Number oldValue, Number newValue) {
-                        red = newValue.intValue();
-                        colorRectangle.setFill(Color.rgb(red, green, blue, alpha));
-                    }
+                (ov, oldValue, newValue) -> {
+                    red = newValue.intValue();
+                    colorRectangle.setFill(Color.rgb(red, green, blue, alpha));
                 }
         );
         greenSlider.valueProperty().addListener(
-                new ChangeListener<Number>() {
-                    @Override
-                    public void changed(ObservableValue<? extends Number> ov,
-                                        Number oldValue, Number newValue) {
-                        green = newValue.intValue();
-                        colorRectangle.setFill(Color.rgb(red, green, blue, alpha));
-                    }
+                (ov, oldValue, newValue) -> {
+                    green = newValue.intValue();
+                    colorRectangle.setFill(Color.rgb(red, green, blue, alpha));
                 }
         );
         blueSlider.valueProperty().addListener(
-                new ChangeListener<Number>() {
-                    @Override
-                    public void changed(ObservableValue<? extends Number> ov,
-                                        Number oldValue, Number newValue) {
-                        blue = newValue.intValue();
-                        colorRectangle.setFill(Color.rgb(red, green, blue, alpha));
-                    }
+                (ov, oldValue, newValue) -> {
+                    blue = newValue.intValue();
+                    colorRectangle.setFill(Color.rgb(red, green, blue, alpha));
                 }
         );
         alphaSlider.valueProperty().addListener(
-                new ChangeListener<Number>() {
-                    @Override
-                    public void changed(ObservableValue<? extends Number> ov,
-                                        Number oldValue, Number newValue) {
-                        alpha = newValue.doubleValue();
-                        colorRectangle.setFill(Color.rgb(red, green, blue, alpha));
-                    }
+                (ov, oldValue, newValue) -> {
+                    alpha = newValue.doubleValue();
+                    colorRectangle.setFill(Color.rgb(red, green, blue, alpha));
                 }
         );
     }
